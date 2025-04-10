@@ -1,0 +1,27 @@
+{
+  "name": "express-rtdocs",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch . --exec node dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZanoTN/express-rtdocs.git"
+  },
+  "author": "ZanoTN",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZanoTN/express-rtdocs/issues"
+  },
+  "homepage": "https://github.com/ZanoTN/express-rtdocs#readme",
+  "devDependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "markdown-it": "^14.1.0"
+  }
+}
