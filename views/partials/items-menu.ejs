@@ -1,0 +1,17 @@
+<% items.forEach(item => { %>
+  <%# Is a folder %>
+  <% if (item.children !== undefined) { %>
+    <p class="mb-0 text-decoration-none text-dark fw-bold">
+      <%- include('../icons/folder-open') %>
+      <%= item.name %>
+    </p>
+    <div class="d-flex flex-column ms-3">
+      <%- include('./items-menu', { items: item.children }) %>
+    </div>  
+  <% } else { %>
+    <%# Is a file %>
+    <a href="<%= item.url %>" class="text-decoration-none <%= item.selected ? 'text-bg-primary' : '' %>">
+      <%= item.name %>
+    </a>
+  <% } %>
+<% }); %>
