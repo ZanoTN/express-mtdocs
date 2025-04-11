@@ -5,12 +5,12 @@
       <%- include('../icons/folder-open') %>
       <%= item.name %>
     </p>
-    <div class="d-flex flex-column ms-4">
+    <div class="d-flex flex-column ms-3">
       <%- include('./items-menu', { items: item.children }) %>
     </div>  
   <% } else { %>
     <%# Is a file %>
-    <a href="<%= item.url %>" class="text-decoration-none">
+    <a href="<%= item.url %>" class="text-decoration-none <%= item.selected ? 'text-bg-primary' : '' %>">
       <%= item.name %>
     </a>
   <% } %>

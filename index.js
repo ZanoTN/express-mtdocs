@@ -4,15 +4,18 @@ const ejs = require('ejs');
 
 const { getMenu, getSectionHtml, getVersion } = require('./lib/data');
 
-
 const router = express.Router();
 
 // Render EJS template from inside the module
 router.get('*', (req, res) => {
+  if(req.path === '/' || req.path === '') {
+    req.url = '/index';
+  }
+
   const templatePath = path.join(__dirname, 'views', 'layout.ejs');
 
   const sectionHtml = getSectionHtml(req);
-  const menuList = getMenu();
+  const menuList = getMenu(req);
   const version = getVersion();
 
   const data = {
