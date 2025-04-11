@@ -1,8 +1,23 @@
 {
   "name": "express-rtdocs",
   "version": "0.1.0",
-  "description": "",
+  "description": "Simple server to see markdown files in a directory as a website.",
+  "keywords": [
+    "markdown",
+    "markdown-it",
+    "express",
+    "server",
+    "static",
+    "docs"
+  ],
   "main": "index.js",
+  "files": [
+    "index.js",
+    "LICENSE",
+    "README.md",
+    "views",
+    "lib"
+  ],
   "scripts": {
     "dev": "nodemon --watch . --exec node dev.js"
   },
