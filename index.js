@@ -2,24 +2,23 @@ const express = require('express');
 const path = require('path');
 const ejs = require('ejs');
 
-const { getMenu, getSectionHtml } = require('./lib/data');
+const { getMenu, getSectionHtml, getVersion } = require('./lib/data');
 
 
 const router = express.Router();
-
-// Serve static files from package's public directory
-router.use('/_rtdocs_assets', express.static(path.join(__dirname, 'public')));
 
 // Render EJS template from inside the module
 router.get('*', (req, res) => {
   const templatePath = path.join(__dirname, 'views', 'layout.ejs');
 
   const sectionHtml = getSectionHtml(req);
-  const menuList = getMenu(req);
+  const menuList = getMenu();
+  const version = getVersion();
 
   const data = {
     sectionHtml,
     menuList,
+    version,
     baseUrl: '/rtdocs',
     title: 'RTDocs'
   };

@@ -1,15 +1,16 @@
 <% items.forEach(item => { %>
   <%# Is a folder %>
   <% if (item.children !== undefined) { %>
-    <a href="#" class="">
+    <p class="mb-0 text-decoration-none text-dark fw-bold">
+      <%- include('../icons/folder-open') %>
       <%= item.name %>
-    </a>
+    </p>
     <div class="d-flex flex-column ms-4">
       <%- include('./items-menu', { items: item.children }) %>
-    </div>
+    </div>  
   <% } else { %>
     <%# Is a file %>
-    <a href="<%= item.url %>" class="">
+    <a href="<%= item.url %>" class="text-decoration-none">
       <%= item.name %>
     </a>
   <% } %>
