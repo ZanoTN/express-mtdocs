@@ -17,11 +17,12 @@
   },
   "homepage": "https://github.com/ZanoTN/express-rtdocs#readme",
   "devDependencies": {
-    "express": "^5.1.0",
     "nodemon": "^3.1.9",
     "prettier": "^3.5.3"
   },
   "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
     "markdown-it": "^14.1.0"
   }
 }
