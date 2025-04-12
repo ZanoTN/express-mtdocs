@@ -1,5 +1,5 @@
 {
-  "name": "express-rtdocs",
+  "name": "express-mtdocs",
   "version": "0.1.0",
   "description": "Simple server to see markdown files in a directory as a website.",
   "keywords": [
@@ -23,14 +23,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZanoTN/express-rtdocs.git"
+    "url": "git+https://github.com/ZanoTN/express-mtdocs.git"
   },
   "author": "ZanoTN",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ZanoTN/express-rtdocs/issues"
+    "url": "https://github.com/ZanoTN/express-mtdocs/issues"
   },
-  "homepage": "https://github.com/ZanoTN/express-rtdocs#readme",
+  "homepage": "https://github.com/ZanoTN/express-mtdocs#readme",
   "devDependencies": {
     "nodemon": "^3.1.9",
     "prettier": "^3.5.3"
