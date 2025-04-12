@@ -20,35 +20,49 @@ function view(options = {
   const router = express.Router();
 
   router.get('*', (req, res) => {
-    if (req.path === '/' || req.path === '') {
-      req.url = '/index';
-    }
-
-    // Replace the %20 with a space in the URL
-    req.url = req.url.replace(/%20/g, ' ');
-
-    const templatePath = path.join(__dirname, 'views', 'layout.ejs');
-
-    setSettings(options.baseUrl, options.title, options.baseDocsPath);
-    const sectionHtml = getSectionHtml(req);
-    const menuList = getMenu(req);
-    const version = getVersion();
-
-    const data = {
-      sectionHtml,
-      menuList,
-      version,
-      title: options.title
-    };
-
-    ejs.renderFile(templatePath, data, (err, html) => {
-      if (err) {
-        console.error('Error rendering EJS template:', err);
-        res.status(500).send('Internal Server Error');
-      } else {
-        res.send(html);
+    try {
+      if (req.path === '/' || req.path === '') {
+        req.url = '/index';
       }
-    });
+
+      // Replace the %20 with a space in the URL
+      req.url = req.url.replace(/%20/g, ' ');
+
+      const templatePath = path.join(__dirname, 'views', 'layout.ejs');
+
+      setSettings(options.baseUrl, options.title, options.baseDocsPath);
+      const sectionHtml = getSectionHtml(req);
+      const menuList = getMenu(req);
+      const version = getVersion();
+
+      const data = {
+        sectionHtml,
+        menuList,
+        version,
+        title: options.title
+      };
+
+      ejs.renderFile(templatePath, data, (err, html) => {
+        if (err) {
+          console.error('MTDocs error: Error rendering EJS template:', err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          res.send(html);
+        }
+      });
+    } catch (error) {
+      const errorTemplatePath = path.join(__dirname, 'views', 'error.ejs');
+
+      console.error('MTDocs error:', error);
+      ejs.renderFile(errorTemplatePath, {error}, (err, html) => {
+        if (err) {
+          console.error('MTDocs error: Error rendering EJS template:', err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          res.status(500).send(html);
+        }
+      });
+    }
   });
 
   return router;
