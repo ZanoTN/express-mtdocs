@@ -24,6 +24,9 @@ function view(options = {
       req.url = '/index';
     }
 
+    // Replace the %20 with a space in the URL
+    req.url = req.url.replace(/%20/g, ' ');
+
     const templatePath = path.join(__dirname, 'views', 'layout.ejs');
 
     setSettings(options.baseUrl, options.title, options.baseDocsPath);
