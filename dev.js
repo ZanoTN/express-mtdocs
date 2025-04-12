@@ -18,5 +18,5 @@ app.listen(PORT, () => {
 app.use("/docs", moduleDocs.view({
   baseUrl: '/docs',
   title: 'ZanoTN Docs',
-  baseDocsPath: 'docs'
+  baseDocsPath: 'example-docs'
 }));

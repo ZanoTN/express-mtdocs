@@ -1,16 +1,21 @@
 <% items.forEach(item => { %>
-  <%# Is a folder %>
-  <% if (item.children !== undefined) { %>
-    <p class="mb-0 text-decoration-none text-dark fw-bold">
-      <%- include('../icons/folder-open') %>
-      <%= item.name %>
-    </p>
-    <div class="d-flex flex-column ms-3">
-      <%- include('./items-menu', { items: item.children }) %>
-    </div>  
+  <% const isFolder = item.children !== undefined; %>
+  <% const wrapperClass = isRoot ? '' : 'ms-4'; %>
+
+  <% if (isFolder) { %>
+    <div class="<%= wrapperClass %>">
+      <div class="d-flex align-items-center fw-bold text-dark">
+        <span class="me-2 d-flex align-items-center">
+          <%- include('../icons/folder-open') %>
+        </span>
+        <span><%= item.name %></span>
+      </div>
+      <div>
+        <%- include('./items-menu', { items: item.children, isRoot: false }) %>
+      </div>  
+    </div>
   <% } else { %>
-    <%# Is a file %>
-    <a href="<%= item.url %>" class="text-decoration-none <%= item.selected ? 'text-bg-primary' : '' %>">
+    <a href="<%= item.url %>" class="d-block <%= isRoot ? '' : 'ms-4' %> text-decoration-none <%= item.selected ? 'text-bg-primary' : 'text-dark' %>">
       <%= item.name %>
     </a>
   <% } %>

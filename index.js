@@ -5,16 +5,16 @@ const ejs = require('ejs');
 const { setSettings, getMenu, getSectionHtml, getVersion } = require('./lib/data');
 
 /**
- * 
+ * MTDocs: A documentation viewer for Express.js
  * @param {Object} options
- * @param {string} options.baseUrl - The base URL for the documentation.
- * @param {string} options.title - The title of the documentation.
- * @param {string} options.baseDocsPath - The base path for the documentation files.
+ * @param {string} options.baseUrl - The base URL for the documentation. (default: '/docs')
+ * @param {string} options.title - The title of the documentation. (default: 'MTDocs')
+ * @param {string} options.baseDocsPath - The base path for the documentation files. (default: 'docs')
  * @returns 
  */
 function view(options = {
-  baseUrl: '/rtdocs',
-  title: 'RTDocs',
+  baseUrl: '/docs',
+  title: 'MTDocs',
   baseDocsPath: 'docs'
 }) {
   const router = express.Router();
