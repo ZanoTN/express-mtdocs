@@ -28,6 +28,9 @@ function view(options = {
       // Replace the %20 with a space in the URL
       req.url = req.url.replace(/%20/g, ' ');
 
+      // Remove the back directory from the URL ("../")
+      req.url = req.url.replace(/\/\.\.\//g, '');
+
       const templatePath = path.join(__dirname, 'views', 'layout.ejs');
 
       setSettings(options.baseUrl, options.title, options.baseDocsPath);
