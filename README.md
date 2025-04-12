@@ -1,5 +1,7 @@
 # Express MTDocs - Master The Docs
 
+> ⚠️ **Caution:** This package is still under development. Features may change.
+
 MTDocs is a simple yet powerful Express middleware for serving structured Markdown-based documentation inside your Node.js projects.
 
 Ideal for developers who want elegant, in-app documentation without the need for external tools.
