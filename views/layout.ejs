@@ -8,17 +8,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="container-fluid px-0">
-      <div class="d-flex flex-column flex-md-row">
+    <div class="container-fluid px-0 d-flex flex-column vh-100">
+      <!-- Header -->
+      <div class="w-100 bg-primary p-3 d-flex align-items-center justify-content-start gap-2">
+        <button class="text-light btn btn-primary" id="menu-toggle">
+          <%- include('./icons/menu-open') %>
+        </button>
+        <h4 class="text-start text-light mb-0"><%= title || 'MTDocs' %></h4>
+      </div>
+
+      <div class="d-flex flex-column flex-md-row flex-grow-1">
         <!-- Fixed-width menu section -->
-        <div class="menu-section-width bg-body-secondary p-0 vh-md-100 d-flex flex-column">
-          <!-- Header -->
-          <div class="w-100 bg-primary p-3">
-            <h2 class="text-center text-light mb-0"><%= title || 'MTDocs' %></h2>
-          </div>
-      
-          <!-- Menu -->
-          <div class="flex-grow-1 overflow-auto">
+        <div class="menu-section-width bg-body-secondary p-0 flex-column d-none d-md-flex">
+            <!-- Menu -->
+          <div class="h-100 overflow-auto">
             <%- include('partials/menu', { menuList: menuList || [] }) %>
           </div>
       
@@ -28,7 +31,7 @@
           </div>
         </div>
         
-        <div class="overflow-auto vh-md-100 w-100">
+        <div class="overflow-auto w-100">
           <!-- Content section -->
           <div class="p-3">
             <%- include('partials/section', { sectionHtml: sectionHtml || null }) %>
@@ -37,6 +40,22 @@
       </div>
     </div>
   </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const menuSection = document.querySelector('.menu-section-width');
+
+      if (menuToggle && menuSection) {
+      menuToggle.addEventListener('click', () => {
+        if (window.innerWidth >= 768) {
+        menuSection.classList.toggle('d-md-flex');
+        } else {
+        menuSection.classList.toggle('d-none');
+        }
+      });
+      }
+    });
+  </script>
   <style>
     :root {
       --bs-border-radius: 0rem;
