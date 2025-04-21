@@ -10,12 +10,27 @@
   <body data-bs-theme="dark">
     <div class="container-fluid px-0 d-flex flex-column vh-100">
       <!-- Header -->
-      <div class="w-100 bg-primary p-3 d-flex align-items-center justify-content-start gap-2">
-        <button class="text-light btn btn-primary" id="menu-toggle">
+      <div class="w-100 bg-primary px-3 py-2 d-flex align-items-center justify-content-start gap-2">
+        <button class="text-light btn d-flex align-items-center justify-content-center" id="menu-toggle">
           <%- include('./icons/menu-open') %>
         </button>
         <h4 class="text-start text-light mb-0"><%= title || 'MTDocs' %></h4>
+        <div class="ms-auto">
+          
+          <button class="btn d-flex align-items-center justify-content-center" id="theme-toggle">
+            <div id="theme-toggle-dark" class="d-none">
+              <%- include('./icons/moon') %>
+            </div>
+            <div id="theme-toggle-light" class="d-none">
+              <%- include('./icons/sun') %>
+            </div>
+          </button>
+        </div>
       </div>
+
+      <script>
+
+      </script>
 
       <div class="d-flex flex-column flex-md-row flex-grow-1">
         <!-- Fixed-width menu section -->
@@ -40,68 +55,8 @@
       </div>
     </div>
   </body>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuToggle = document.getElementById('menu-toggle');
-      const menuSection = document.querySelector('.menu-section-width');
-
-      if (menuToggle && menuSection) {
-      menuToggle.addEventListener('click', () => {
-        if (window.innerWidth >= 768) {
-        menuSection.classList.toggle('d-md-flex');
-        } else {
-        menuSection.classList.toggle('d-none');
-        }
-      });
-      }
-    });
-  </script>
-  <style>
-    :root {
-      --bs-border-radius: 0rem;
-      --bs-border-radius-sm: 0rem;
-      --bs-border-radius-lg: 0rem;
-      --bs-border-radius-xl: 0rem;
-      --bs-border-radius-xxl: 0rem;
-      --bs-border-radius-2xl: 0rem;
-    }
-    pre {
-      background-color: var(--bs-secondary-bg);
-      padding: 1rem;
-      overflow-x: auto;
-    }
-    code {
-      background-color: var(--bs-secondary-bg);
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    table, th, td {
-      border: 1px solid var(--bs-border-color); /* adapts to theme */
-    }
-    thead {
-      background-color: var(--bs-secondary-bg); /* adapts to theme */
-      color: var(--bs-body-color);
-    }
-    th, td {
-      padding: 0.5rem;
-      vertical-align: middle;
-    }
-    @media (min-width: 768px) {
-      .vh-md-100 {
-        height: 100vh !important;
-      }
-      .menu-section-width {
-        width: 300px; 
-        flex: 0 0 300px;
-      }
-    }
-    .icon-menu {
-      width: 1em;
-      height: 1em;
-      text-align: center;
-      fill: currentColor;
-    }
-  </style>
+  
+  <%- include('../javascript/global') %>
+  <%- include('../styles/global') %>
+  
 </html>
