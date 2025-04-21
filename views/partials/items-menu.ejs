@@ -4,7 +4,7 @@
 
   <% if (isFolder) { %>
     <div class="<%= wrapperClass %>">
-      <div class="d-flex align-items-center fw-bold text-dark">
+      <div class="d-flex align-items-center fw-bold">
         <span class="me-2 d-flex align-items-center">
           <%- include('../icons/folder-open') %>
         </span>
@@ -15,7 +15,7 @@
       </div>  
     </div>
   <% } else { %>
-    <a href="<%= item.url %>" class="d-block <%= isRoot ? '' : 'ms-4' %> text-decoration-none <%= item.selected ? 'text-bg-primary' : 'text-dark' %>">
+    <a href="<%= item.url %>" class="d-block <%= isRoot ? '' : 'ms-4' %> text-decoration-none <%= item.selected ? 'text-bg-primary' : 'text-reset' %>">
       <%= item.name %>
     </a>
   <% } %>
