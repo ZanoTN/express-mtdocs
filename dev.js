@@ -15,8 +15,8 @@ app.listen(PORT, () => {
 });
 
 // Add the route for serving the documentation
-app.use("/docs", moduleDocs.view({
-  baseUrl: '/docs',
+app.use("/api/docs", moduleDocs.view({
+  baseUrl: '/api/docs',
   title: 'ZanoTN Docs',
   baseDocsPath: 'example-docs'
 }));
