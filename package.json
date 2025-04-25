@@ -16,7 +16,9 @@
     "LICENSE",
     "README.md",
     "views",
-    "lib"
+    "lib",
+    "styles",
+    "javascript"
   ],
   "scripts": {
     "dev": "nodemon --watch . --exec node dev.js"
