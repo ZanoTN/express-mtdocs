@@ -1,6 +1,6 @@
 {
   "name": "express-mtdocs",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Simple server to see markdown files in a directory as a website.",
   "keywords": [
     "markdown",
