@@ -61,4 +61,10 @@ example-docs/
 
 ## Screenshots
 
-![Screenshot 1](https://raw.githubusercontent.com/ZanoTN/express-mtdocs/main/docs/screenshots/screenshot1.png)
+### Dark theme
+
+![Dark theme screenshot](https://raw.githubusercontent.com/ZanoTN/express-mtdocs/main/docs/screenshots/dark.png)
+
+### Light theme
+
+![Light theme screenshot](https://raw.githubusercontent.com/ZanoTN/express-mtdocs/main/docs/screenshots/light.png)
